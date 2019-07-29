@@ -1,0 +1,15 @@
+A Drive -on kapott Bootstrap4 feladatot egészítsd ki az alábbiakkal.
+Készíts egy Testimonial részt az elsõ blokk alá.
+A felhasználókat és a hitvallásukat a „http://46.101.237.11/json/users.json” címen találod.
+Töltsd le ezt az állományt $.ajax vagy $.getJSON segítéségével, amint az oldalad betöltõdött.
+Ez alapján jeleníts meg véletlenszerûen 5 hitvallást.
+Mindegyik tartalmazza az illetõ képét, nevét és a hitvallást (greeting).
+Ezt a sablont használd a hitvallásokhoz: „https://bootsnipp.com/snippets/6X9om”.
+2019.07.30. 14:20
+határidõ
+többször
+beadható
+Szöveg és fájl beadása is lehetséges, legalább az egyik kötelezõ
+feladatbeadáshoz szükséges
+Javítás várható ideje: 8/2/2019 2:20 PM
+címkék: bootstrap jquery
