@@ -1,16 +1,46 @@
 'use strict';
 
 window.onscroll = function () {
-  scrolledWindow()
+  TestimonialRandomizer.init();
+};
+const TestimonialRandomizer = {
+  people: [],
+  getFiveRandomIndex() {
+    const fiveRandIndexFromPeople = new Set();
+    while (fiveRandIndexFromPeople.size < 5) {
+      fiveRandIndexFromPeople.add(Math.floor(Math.random() * this.people.length));
+    }
+    return Array.from(fiveRandIndexFromPeople);
+  },
+  fillTestimonialArea() {
+    const fiveWinner = this.getFiveRandomIndex().map(index => this.people[index]);
+    for (let i = 0; i < fiveWinner.length; i += 1) {
+      $(`#testim-content div:nth-child(${i + 1}) img`).attr('src', fiveWinner[i].picture);
+      $(`#testim-content div:nth-child(${i + 1}) .h4`).text(`${fiveWinner[i].name.first} ${fiveWinner[i].name.last}`);
+      $(`#testim-content div:nth-child(${i + 1}) p`).html(`${fiveWinner[i].greeting}`);
+    }
+  },
+  getData(data) {
+    this.people = data;
+    this.fillTestimonialArea();
+  },
+  getJSON() {
+    $.getJSON("http://46.101.237.11/json/users.json", (data) => { this.getData(data); });
+  },
+  init() {
+    this.getJSON();
+  },
 };
 
+
+/*
 function scrolledWindow() {
   const nav = document.querySelector('.fixed-top');
   const top = document.body.scrollTop || document.documentElement.scrollTop
-  if (top != 0) {
-    nav.classList.add('scrolled-nav')
+  if (top !== 0) {
+    nav.classList.add('scrolled-nav');
   } else {
-    nav.classList.remove('scrolled-nav')
+    nav.classList.remove('scrolled-nav');
   }
 }
 // open modals with jquery
@@ -35,7 +65,7 @@ $.getJSON("http://46.101.237.11/json/users.json", function (data) {
   this.data = data;
   console.log(data);
 
-})
+})*/
 
 let testim = document.getElementById("testim"),
   testimDots = Array.prototype.slice.call(document.getElementById("testim-dots").children),
@@ -52,7 +82,7 @@ let testim = document.getElementById("testim"),
   ignoreTouch = 30;
 ;
 
-window.onload = function () {
+window.onload = function onload() {
 
   // Testim Script
   function playSlide(slide) {

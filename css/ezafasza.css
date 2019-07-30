@@ -106,7 +106,7 @@ span:hover {
     /*height: 600px;*/
     position: relative;
     padding: 50px 0;
-    background-color: #e91c5e;
+    background-color: #44d9e4;
   }
   
   .testim .wrap {
@@ -213,6 +213,7 @@ span:hover {
   
   .testim .cont > div.inactive {
       opacity: 1;
+      width: 100%
   }
       
   
